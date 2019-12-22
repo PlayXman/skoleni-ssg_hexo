@@ -1,0 +1,8 @@
+<div class="fotky">
+    <h1><%= __( 'gallery.title' ) %>:</h1>
+
+    <% const path = 'assets/img/fotky' %>
+    <% for(let i = 1; i < 18; i++) { %>
+        <a href="<%= url_for( `${path}/f${i}.jpg` ) %>" style="background: url('<%= url_for( `${path}/thumbs/f${i}.jpg` ) %>')" data-lightbox="fotky" class="obrazek"></a>
+    <% } %>
+</div>

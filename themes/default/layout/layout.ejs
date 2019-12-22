@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<%= page.lang %>" xml:lang="<%= page.lang %>">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="description" content="<%= config.description %>">
+    <meta name="keywords" content="<%= config.keywords %>">
+    <meta name="author" content="<%= config.author %>">
+    <title><%= page.title %></title>
+
+    <%- css( [
+        'assets/css/style',
+        'assets/css/lightbox',
+        'assets/css/dimensions'
+    ] ) %>
+    <%- js( [
+        '/assets/js/jquery-1.10.2.min',
+        '/assets/js/lightbox-2.6.min'
+    ] ) %>
+</head>
+
+<body>
+    <div class="pozadi1 pozadi">
+    </div>
+    <div class="pozadi2 pozadi">
+    </div>
+    <div class="pozadi3 pozadi">
+    </div>
+
+    <div class="kontejner">
+        <div class="jazyky">
+            <a href="<%- url_for( '/' ) %>" <% if(is_current( '/' )) { %>class="active"<% } %>><span>CZ</span></a>
+            <a href="<%- url_for( '/en' ) %>" <% if(is_current( '/en' )) { %>class="active"<% } %>><span>EN</span></a>
+            <a href="<%- url_for( '/de' ) %>" <% if(is_current( '/de' )) { %>class="active"<% } %>><span>DE</span></a>
+        </div>
+        <div class="obsah">
+            <%- partial( '_partials/header.ejs' ) %>
+            <%- body %>
+            <%- partial( '_partials/links.ejs' ) %>
+
+            <footer>
+                <p>&copy; 2015 DESIGNby<span>MB</span></p>
+            </footer>
+            <endora></endora>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<div id="pokoje">
+    <% page.rooms.forEach( ( room, index ) => { %>
+        <% const id = `p${index}` %>
+        <input type="checkbox" name="pok" id="<%= id %>" />
+        <label for="<%= id %>">
+            <div class="sipka"></div>
+            <article>
+                <h3><%= room.title %></h3>
+                <%- markdown(room.text) %>
+            </article>
+
+            <% for(let picture of room.pictures) { %>
+                <a class="obrazek" href="<%= url_for(`assets/img/pokoje/${picture}.jpg`) %>" data-lightbox="<%= id %>" style="background: url('<%= url_for(`assets/img/pokoje/thumbs/${picture}.jpg`) %>')"></a>
+            <% } %>
+        </label>
+    <% }) %>
+</div>
